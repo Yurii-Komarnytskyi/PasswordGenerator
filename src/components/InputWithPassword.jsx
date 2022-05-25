@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from './InputWithPassword.module.css'
 
-const InputWithPassword = ({genPass, password}) => {
+const InputWithPassword = ({password, wrapperForSetPass}) => {
+  const inpWithPass = useRef(null);
+  const copyText = () => navigator.clipboard.writeText(inpWithPass.current.value);
   return (
     <div className={styles.inpWithPass}>
-        <input placeholder='Password appears here'></input> 
-        <button onClick={()=> true}>Create</button>
-        <button onClick={()=> true}>Copy</button>
+        <input 
+          readOnly
+          placeholder='Password appears here' 
+          value={password} 
+          ref={inpWithPass}
+        ></input> 
+        <button onClick={wrapperForSetPass}>Create</button>
+        <button onClick={copyText}>Copy</button>
     </div>
   )
 }
