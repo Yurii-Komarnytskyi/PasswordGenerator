@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import CheckBox from "./components/CheckBox";
 import InputWithPassword from "./components/InputWithPassword";
-import { genPass, piecesForPassword} from "./utils";
+import PasswordLengthRange from "./components/PasswordLengthRange";
+import { genPass} from "./utils";
 function App() {
   const [password, setPassword] = useState('');
   const [passwdLength, setPasswdLength] = useState(5);
@@ -19,14 +20,16 @@ function App() {
   }
 
   useEffect(()=> {
-    // jC4_ fW2$
-  },[])
+    // nM6$ yJ#  dF  hW1# uM tF@
+    console.log(passwdLength)
+  },[passwdLength])
   return (
     <main>
       <InputWithPassword 
         password={password}
         wrapperForSetPass={wrapperForSetPass}
       />
+      <PasswordLengthRange setPasswdLength={setPasswdLength}/>
       <CheckBox description={'Include capital letters'} handler={setCapLettIncluded} />
       <CheckBox description={'Include integers'} handler={setIntegersIncluded} />
       <CheckBox description={'Include symbols'} handler={setSymbolsIncluded} />  

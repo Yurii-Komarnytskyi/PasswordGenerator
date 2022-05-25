@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import styles from './InputWithPassword.module.css'
+import styles from './InputWithPassword.module.css';
 
 const InputWithPassword = ({password, wrapperForSetPass}) => {
   const inpWithPass = useRef(null);
