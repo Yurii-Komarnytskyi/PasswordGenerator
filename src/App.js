@@ -19,10 +19,6 @@ function App() {
     ))
   }
 
-  useEffect(()=> {
-    // nM6$ yJ#  dF  hW1# uM tF@
-    console.log(passwdLength)
-  },[passwdLength])
   return (
     <main>
       <InputWithPassword 
