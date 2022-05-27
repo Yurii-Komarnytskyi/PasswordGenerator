@@ -12,7 +12,7 @@ const pickRandArr = (arr) => {
     return key[randIntRange(0, key.length-1)];
 }
 
-function genPass (passLength = 5, capLetters = false, integers = false, symb = false) {
+const genPass = (passLength = 5, capLetters = false, integers = false, symb = false) => {
     let password = ''
     const passOptionsAccordToArgs = [
         piecesForPassword[0],

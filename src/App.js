@@ -3,6 +3,7 @@ import CheckBox from "./components/CheckBox";
 import InputWithPassword from "./components/InputWithPassword";
 import PasswordLengthRange from "./components/PasswordLengthRange";
 import { genPass} from "./utils";
+import styles from './App.module.css';
 function App() {
   const [password, setPassword] = useState('');
   const [passwdLength, setPasswdLength] = useState(5);
@@ -20,15 +21,16 @@ function App() {
   }
 
   return (
-    <main>
-      <InputWithPassword 
+    <main className={styles.mainWrapper}>
+      <InputWithPassword
         password={password}
         wrapperForSetPass={wrapperForSetPass}
       />
       <PasswordLengthRange setPasswdLength={setPasswdLength}/>
       <CheckBox description={'Include capital letters'} handler={setCapLettIncluded} />
       <CheckBox description={'Include integers'} handler={setIntegersIncluded} />
-      <CheckBox description={'Include symbols'} handler={setSymbolsIncluded} />  
+      <CheckBox description={'Include symbols'} handler={setSymbolsIncluded} /> 
+      
     </main>
   );
 }
