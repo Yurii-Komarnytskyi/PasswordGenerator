@@ -1,5 +1,15 @@
 .checkBoxContainer {
     display: flex;
-    justify-content: center;
     margin-top: 10px;
+    user-select: none;
+}
+.checkBoxContainer span {
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #000;
+}
+
+.chBox {
+    width: 15px;
+    height: 15px;
 }

@@ -1,16 +1,18 @@
 import React from 'react';
 import styles from './PasswordLengthRange.module.css';
-const PasswordLengthRange = ({setPasswdLength}) => {
+const PasswordLengthRange = ({passwdLength, setPasswdLength}) => {
   return (
-    <React.Fragment>
+    <div className={styles.rangeCont}>
         <input 
-            className={styles.rangeBar}
-            type='range' 
-            min={5} 
-            max={20}
-            onChange={(e) => setPasswdLength(e.target.value)}
+          className={styles.rangeBar}
+          type='range' 
+          min={5} 
+          max={20}
+          defaultValue={5}
+          onChange={(e) => setPasswdLength(e.target.value)}
         />
-    </React.Fragment>
+        <span className={styles.valOfRange}>{passwdLength}</span>
+    </div>
   )
 }
 

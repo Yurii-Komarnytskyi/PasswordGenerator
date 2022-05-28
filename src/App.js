@@ -26,10 +26,12 @@ function App() {
         password={password}
         wrapperForSetPass={wrapperForSetPass}
       />
-      <PasswordLengthRange setPasswdLength={setPasswdLength}/>
+      <PasswordLengthRange passwdLength={passwdLength} setPasswdLength={setPasswdLength}/>
+
       <CheckBox description={'Include capital letters'} handler={setCapLettIncluded} />
       <CheckBox description={'Include integers'} handler={setIntegersIncluded} />
       <CheckBox description={'Include symbols'} handler={setSymbolsIncluded} /> 
+    
       
     </main>
   );
