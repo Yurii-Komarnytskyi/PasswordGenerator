@@ -10,6 +10,7 @@ function App() {
   const [capLettIncluded, setCapLettIncluded] = useState(false);
   const [integersIncluded, setIntegersIncluded] = useState(false);
   const [symbolsIncluded, setSymbolsIncluded] = useState(false);
+  const [uniqueSymbOnly, setUniqueSymbOnly] = useState(false);
 
   const wrapperForSetPass = () => {
     setPassword(genPass(
@@ -17,8 +18,10 @@ function App() {
       capLettIncluded,
       integersIncluded,
       symbolsIncluded,
+      uniqueSymbOnly,
     ))
   }
+  useEffect(wrapperForSetPass, [passwdLength, capLettIncluded, integersIncluded, symbolsIncluded, uniqueSymbOnly])
 
   return (
     <main className={styles.mainWrapper}>
@@ -31,6 +34,7 @@ function App() {
       <CheckBox description={'Include capital letters'} handler={setCapLettIncluded} />
       <CheckBox description={'Include integers'} handler={setIntegersIncluded} />
       <CheckBox description={'Include symbols'} handler={setSymbolsIncluded} /> 
+      <CheckBox description={'Unique symbols only'} handler={setUniqueSymbOnly} /> 
     
       
     </main>
