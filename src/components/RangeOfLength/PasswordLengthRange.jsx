@@ -16,6 +16,7 @@ const PasswordLengthRange = ({passwdLength, setPasswdLength}) => {
           type='text'
           value={passwdLength}
           className={styles.valOfRange}
+          readOnly
         />
     </div>
   )

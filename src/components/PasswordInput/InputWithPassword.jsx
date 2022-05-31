@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import IndicatorOfDifficulty from '../IndicationBar/IndicatorOfDifficulty';
 import styles from './InputWithPassword.module.css';
 
 const InputWithPassword = ({password, wrapperForSetPass}) => {

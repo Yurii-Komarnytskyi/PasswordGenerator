@@ -1,0 +1,26 @@
+.basicBar {
+    height: 1.1em;
+    border-radius: 5px;
+    margin-top: 5px;
+    text-align: center;
+    color: rgb(255, 247, 231);
+    font-weight: 600;
+    transition: width 800ms ease;
+    user-select: none;
+}
+
+.basicBar.weakPass {
+    background-color: rgb(235, 124, 20);
+    width: 60px;
+}
+
+.basicBar.mediumPass {
+    background-color: rgb(85, 84, 6);   
+    width: 120px;
+
+}
+
+.basicBar.strongPass {
+    background-color: rgb(50, 129, 50);   
+    width: 185px;
+}

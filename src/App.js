@@ -31,7 +31,7 @@ function App() {
         wrapperForSetPass={wrapperForSetPass}
       />
       <IndicatorOfDifficulty passwdLength={passwdLength}/>
-      
+
       <CheckBox description={'Include capital letters'} handler={setCapLettIncluded} />
       <CheckBox description={'Include integers'} handler={setIntegersIncluded} />
       <CheckBox description={'Include symbols'} handler={setSymbolsIncluded} /> 
