@@ -4,6 +4,7 @@ import InputWithPassword from "./components/PasswordInput/InputWithPassword";
 import PasswordLengthRange from "./components/RangeOfLength/PasswordLengthRange";
 import { genPass} from "./utils";
 import styles from './App.module.css';
+import IndicatorOfDifficulty from "./components/IndicationBar/IndicatorOfDifficulty";
 function App() {
   const [password, setPassword] = useState('');
   const [passwdLength, setPasswdLength] = useState(5);
@@ -29,13 +30,15 @@ function App() {
         password={password}
         wrapperForSetPass={wrapperForSetPass}
       />
-      <PasswordLengthRange passwdLength={passwdLength} setPasswdLength={setPasswdLength}/>
-
+      <IndicatorOfDifficulty passwdLength={passwdLength}/>
+      
       <CheckBox description={'Include capital letters'} handler={setCapLettIncluded} />
       <CheckBox description={'Include integers'} handler={setIntegersIncluded} />
       <CheckBox description={'Include symbols'} handler={setSymbolsIncluded} /> 
       <CheckBox description={'Unique symbols only'} handler={setUniqueSymbOnly} /> 
-    
+
+      <PasswordLengthRange passwdLength={passwdLength} setPasswdLength={setPasswdLength}/>
+
       
     </main>
   );

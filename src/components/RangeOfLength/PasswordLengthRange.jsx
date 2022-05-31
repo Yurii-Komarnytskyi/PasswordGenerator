@@ -11,7 +11,12 @@ const PasswordLengthRange = ({passwdLength, setPasswdLength}) => {
           defaultValue={5}
           onChange={(e) => setPasswdLength(e.target.value)}
         />
-        <span className={styles.valOfRange}>{passwdLength}</span>
+        
+        <input 
+          type='text'
+          value={passwdLength}
+          className={styles.valOfRange}
+        />
     </div>
   )
 }
