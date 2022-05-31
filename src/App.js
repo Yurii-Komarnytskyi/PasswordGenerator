@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import CheckBox from "./components/CheckBox";
-import InputWithPassword from "./components/InputWithPassword";
-import PasswordLengthRange from "./components/PasswordLengthRange";
+import CheckBox from "./components/Checkboxes/CheckBox";
+import InputWithPassword from "./components/PasswordInput/InputWithPassword";
+import PasswordLengthRange from "./components/RangeOfLength/PasswordLengthRange";
 import { genPass} from "./utils";
 import styles from './App.module.css';
 function App() {
