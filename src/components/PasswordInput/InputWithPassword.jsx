@@ -3,22 +3,15 @@ import styles from './InputWithPassword.module.css';
 
 const InputWithPassword = ({ password, wrapperForSetPass, passwdLength }) => {
   const inpWithPass = useRef(null);
-  const passBar = useRef(null);
-
   const copyText = () => navigator.clipboard.writeText(inpWithPass.current.value);
 
-  const randerTheBar = (passwdLength) => {
-    if (passwdLength <= 8) {
-      passBar.current.className = styles.basicBar + ` ${styles.weakPass}`;
-    } else if (passwdLength > 8 && passwdLength <= 13) {
-      passBar.current.className = styles.basicBar + ` ${styles.mediumPass}`;
-    } else if(passwdLength >= 14) {
-      passBar.current.className = styles.basicBar + ` ${styles.strongPass}`;
-    }
+  const renderTheBar = (passwdLength) => {
+    if (passwdLength <= 8) return ` ${styles.weakPass}`;
+    else if (passwdLength > 8 && passwdLength <= 13) return ` ${styles.mediumPass}`;
+    else return ` ${styles.strongPass}`;
   }
-
   useEffect(() => {
-    randerTheBar(passwdLength);
+    renderTheBar(passwdLength);
   }, [passwdLength])
 
   return (
@@ -34,8 +27,7 @@ const InputWithPassword = ({ password, wrapperForSetPass, passwdLength }) => {
         <button className={styles.bttnBeauty} onClick={copyText}>Copy</button>
       </div>
       <div
-        className={styles.basicBar}
-        ref={passBar}
+        className={styles.basicBar + renderTheBar(passwdLength)}
       />  
     </React.Fragment>
   )
