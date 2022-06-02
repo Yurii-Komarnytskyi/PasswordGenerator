@@ -4,7 +4,7 @@ import InputWithPassword from "./components/PasswordInput/InputWithPassword";
 import PasswordLengthRange from "./components/RangeOfLength/PasswordLengthRange";
 import { genPass} from "./utils";
 import styles from './App.module.css';
-import IndicatorOfDifficulty from "./components/IndicationBar/IndicatorOfDifficulty";
+
 function App() {
   const [password, setPassword] = useState('');
   const [passwdLength, setPasswdLength] = useState(5);
@@ -29,9 +29,9 @@ function App() {
       <InputWithPassword
         password={password}
         wrapperForSetPass={wrapperForSetPass}
+        passwdLength={passwdLength}
       />
-      <IndicatorOfDifficulty passwdLength={passwdLength}/>
-
+      <h3 className={styles.heading}>You may choose from the following options</h3>  
       <CheckBox description={'Include capital letters'} handler={setCapLettIncluded} />
       <CheckBox description={'Include integers'} handler={setIntegersIncluded} />
       <CheckBox description={'Include symbols'} handler={setSymbolsIncluded} /> 
