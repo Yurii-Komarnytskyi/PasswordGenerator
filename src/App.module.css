@@ -1,4 +1,4 @@
-.mainWrapper{
+/* .mainWrapper{
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -9,4 +9,8 @@
 
 .heading {
     font-weight: 500;
+} */
+body {
+    margin: 0;
+    padding: 0;
 }

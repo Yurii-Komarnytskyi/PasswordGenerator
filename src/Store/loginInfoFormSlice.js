@@ -1,4 +1,3 @@
-import React from 'react';
 import { createSlice } from '@reduxjs/toolkit';
 import { genPass } from '../utils';
 
@@ -14,7 +13,6 @@ const loginInfoFormSlice = createSlice({
             integersIncluded: false,
             symbolsIncluded: false,
             uniqueSymbOnly: false,
-
         }
     },
     reducers: {
@@ -24,17 +22,20 @@ const loginInfoFormSlice = createSlice({
         gatherUserName(state, action) {
             state.userName = action.payload;
         },
+        gatherValueByStateKey(state, action){
+            state[action.payload.dynamicKey] = action.payload.inputValue;
+            
+        },
         togglePasswdWindCheckBox(state, action) {
             state.passwordWindow[action.payload] = !state.passwordWindow[action.payload];
         },
         setPasswdLength(state, action) {
-            console.log('action.payload: ', action.payload);
             state.passwordWindow.passwdLength = action.payload;
         },
         setPasswordManually(state, action) {
             state.generatedPassword = action.payload;
         },
-        setPasswordBasedOnOptions(state, action) {
+        setPasswordBasedOnOptions(state, _) {
             state.generatedPassword = genPass(state.passwordWindow)
         }
     }
@@ -46,6 +47,7 @@ export const {
     togglePasswdWindCheckBox,
     setPasswdLength,
     setPasswordManually,
-    setPasswordBasedOnOptions, } = loginInfoFormSlice.actions;
+    setPasswordBasedOnOptions,
+    gatherValueByStateKey, } = loginInfoFormSlice.actions;
 
 export default loginInfoFormSlice.reducer;

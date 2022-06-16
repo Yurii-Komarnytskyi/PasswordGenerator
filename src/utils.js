@@ -16,12 +16,12 @@ const pickRandArr = (arr, uniqueSymb, recipient) => {
     return val;
 }
 
-const genPass = ({
-    passwdLength = 5,
+const genPass = (
+    {passwdLength = 5,
     capLettIncluded = false, 
     integersIncluded = false, 
     symbolsIncluded = false,
-    uniqueSymbOnly = false}) => {
+    uniqueSymbOnly = false} ) => {
         let password = '';
         const passOptionsAccordToArgs = [
             piecesForPassword[0],
@@ -34,4 +34,24 @@ const genPass = ({
         }
         return password;
 }
-export { genPass, }
+
+const beautifyCardNumber = (prevState, currentChar) => {
+    console.log(prevState.split(''))
+    let index = prevState.length-1;
+    if(index === 4 || index === 9 || index === 13 || index === 17) return ' wee';
+    return currentChar;
+    
+    // if(prevState.join('').length > 16) return prevState;
+    // return (prevState.split('').reduce((acc, currentVal, index) => {
+    //     console.log('here')
+    //     if(index === 4 || index === 9 || index === 13 || index === 17) {
+    //         acc += ' ';
+    //         return acc;
+    //     }
+    //     acc += currentChar.trim();
+    //     return acc;
+    // },``))
+    // `${action.payload.slice(0, 4)} ${action.payload.slice(4, 8)} ${action.payload.slice(9, 13)} ${action.payload.slice(13)}`
+}
+
+export { genPass, beautifyCardNumber}
