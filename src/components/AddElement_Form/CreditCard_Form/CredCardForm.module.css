@@ -1,0 +1,10 @@
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    margin-left: 35%;
+
+    background: rgb(27, 27, 27);
+
+}
