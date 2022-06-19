@@ -1,0 +1,39 @@
+.formsWrapper {
+    display: flex;
+    flex-direction: column;    
+    background-color: #3d3d3d;
+    width: 80%;
+}
+.navLink {
+    display: block;
+    padding-left: 25px;
+    color: #faebd7;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+.navLink:hover{
+    color: #4081dd;
+}
+
+.formItemNickName {
+    margin-top: 5px;
+    border-radius: 6px;
+}
+.formItemNickName span{
+    display: block;
+    text-align:start;
+    padding: 5px 5px 5px 25px;
+    color: #faebd7;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 6px;
+    
+}
+
+.formsWrapper :hover {
+    background-color: #222222;
+}

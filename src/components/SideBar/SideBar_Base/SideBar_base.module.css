@@ -2,15 +2,25 @@
     width: 20%;
     display: flex;
     flex-direction: column;
-
     padding: 10px;
-    background-color: aquamarine;
+    background-color: #3d3d3d;
 }
 
-.sideBar_LinkElem {
-    display: block;
+.plainLink {
+    margin-bottom: 5px;
+    margin-left: 20px;
+    font-size: 1.3em;
+    color: #bcf2ec;
+    text-decoration: none;
+    user-select: none;
 }
 
-.sideBar_FolderElem {
-    margin-top: 40%;
+.plainLink:hover {
+    color: #4081dd;
+}   
+
+h2 {
+    margin-bottom: 25px;
+    color: #bcf2ec;
+    user-select: none;
 }

@@ -1,0 +1,16 @@
+.folderWrapper {
+    overflow-y: scroll;
+    max-height: 50%;
+    margin-bottom: 40px;
+    background: #3d3d3d;
+    border-bottom: 0.5px #4081dd solid;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+h3 {
+    margin-left: 20px;
+    color: #bcf2ec;
+}

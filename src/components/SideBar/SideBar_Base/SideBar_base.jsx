@@ -1,16 +1,24 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import InputWithPassword from '../../ModalWindowForPasswordGenerator/PasswordInput/InputWithPassword';
-import LinkOfSB from '../SideBar_Link/LinkOfSB';
+import { Link, } from 'react-router-dom';
+import FoldersOfSideBar from '../SideBar_Folder/FoldersOfSideBar';
 import styles from './SideBar_base.module.css';
-
+import { screen_HEIGHT, } from '../../../utils';
 const SideBar_base = () => {
+  
+  
   return (
-    <div className={styles.sideBarWrapper}>
-      <h2>All elements</h2>
-      <Link to='/loginInfo'>Login</Link> 
-      <Link to='/creditCard'>Credit card</Link> 
+    <div 
+      className={styles.sideBarWrapper}
+      style={{height: `${screen_HEIGHT()}px`}}
+    >
+      <h2> Types </h2>
+      <Link to='/loginInfo' className={styles.plainLink}>Login</Link> 
+      <Link to='/creditCard' className={styles.plainLink}>Credit card</Link> 
       {/* NEED TO CREATE SOME DEFAULT BACKGROUND WHERE USER CAM CHECK OUT SOME BASIC INFO AND ETC. */}
+      {/* ALSO NEED TO INTERCEPT UNWANTED CLICS ON ALL OF THE LINK ITEMS  */}
+
+      <h2> Folders </h2>
+      <FoldersOfSideBar />
     </div>
   )
 }
