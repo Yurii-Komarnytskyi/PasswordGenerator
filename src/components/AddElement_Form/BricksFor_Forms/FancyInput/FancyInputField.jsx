@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import styles from './FancyInputField.module.css';
 
 const FancyInputField = ({ 
@@ -8,16 +9,25 @@ const FancyInputField = ({
   plHolder,
   gotToHideInpText = false, }) => {
 
+  const [aye, setAye] = useState(gotToHideInpText);
+
   return (
     <div className={styles.wrapper}>
-      <span>{textForUpperSpan}</span>
+      <span className={styles.headerSpan}>{textForUpperSpan}</span>
       <input
-        type={(gotToHideInpText)? 'password' : 'text'}
+        className={styles.usersInput}
+        type={(aye)? 'password' : 'text'}
         onChange={(e) => inputHandler(e.target.value)}
         value={usersInput}
         placeholder={(plHolder)? plHolder : ''}
       />
-    </div>
+      {(gotToHideInpText)? (
+        <button 
+        onClick={()=> setAye(aye => !aye)}
+        className={styles.ayeButton}
+      ></button>
+      ) : null} 
+    </div> 
   )
 }
 
