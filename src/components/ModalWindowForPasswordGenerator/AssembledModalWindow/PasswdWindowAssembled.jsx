@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import styles from './PasswdWindowAssembled.module.css';
+
 import { 
     togglePasswdWindCheckBox, 
     setPasswdLength, 
     setPasswordBasedOnOptions,  } from '../../../Store/loginInfoFormSlice';
-import { genPass } from '../../../utils';
 import CheckBox from '../Checkboxes/CheckBox';
 import InputWithPassword from '../PasswordInput/InputWithPassword';
 import PasswordLengthRange from '../RangeOfLength/PasswordLengthRange';
-import styles from './PasswdWindowAssembled.module.css';
 
 const PasswdWindowAssembled = ({isVisible, genPssd}) => {
     
@@ -19,23 +19,6 @@ const PasswdWindowAssembled = ({isVisible, genPssd}) => {
     const wrapperForSetPass = () => {
         dispatch(setPasswordBasedOnOptions());
     }
-    // const [password, setPassword] = useState('');
-    // const [passwdLength, setPasswdLength] = useState(5);
-    // const [capLettIncluded, setCapLettIncluded] = useState(false);
-    // const [integersIncluded, setIntegersIncluded] = useState(false);
-    // const [symbolsIncluded, setSymbolsIncluded] = useState(false);
-    // const [uniqueSymbOnly, setUniqueSymbOnly] = useState(false);
-
-    // const wrapperForSetPass = () => {
-    //     setPassword(genPass(
-    //         passwordWidow_State.passwdLength,
-    //         capLettIncluded,
-    //         integersIncluded,
-    //         symbolsIncluded,
-    //         uniqueSymbOnly, 
-    //     ))
-    // }
-    
     
     useEffect(
         wrapperForSetPass, 
@@ -47,13 +30,13 @@ const PasswdWindowAssembled = ({isVisible, genPssd}) => {
     )
         
     return (
-        <div>
+        <div className={styles.wrapperOfWindow}>
             <InputWithPassword
                 password={genPssd}
                 wrapperForSetPass={wrapperForSetPass}
                 passwdLength={passwordWidow_State.passwdLength}
             />
-            <h3 className={styles.heading}>You may choose from the following options</h3>
+            <h2 className={styles.heading}> You may choose from the following options: </h2>
             <CheckBox 
                 description={'Include capital letters'} 
                 handleChange={()=> dispatch(togglePasswdWindCheckBox('capLettIncluded'))} 
@@ -74,7 +57,10 @@ const PasswdWindowAssembled = ({isVisible, genPssd}) => {
                 passwdLength={passwordWidow_State.passwdLength} 
                 setPasswdLength={(e)=> dispatch(setPasswdLength(e))} 
             />
-            <button onClick={() => isVisible(visible => !visible)}>Finish</button>
+            <button 
+              onClick={() => isVisible(visible => !visible)}
+              className={styles.finishBttn}
+            > Complete </button>
         </div>
 
     )

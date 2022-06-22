@@ -4,9 +4,11 @@
     user-select: none;
 }
 .checkBoxContainer span {
+    padding-left: 5px;
     cursor: pointer;
     font-size: 1.2em;
-    color: #000;
+    font-weight: 600;
+    color: #faebd7;
 }
 
 .chBox {

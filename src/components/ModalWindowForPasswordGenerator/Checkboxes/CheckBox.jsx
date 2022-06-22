@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './CheckBox.module.css';
 
 const CheckBox = ({description, handleChange}) => {
-  // const wrappedHandeler = () => handler(val => !val);
+  
   const cancelChBxActivation = (e) => {
     if(e.target.tagName === 'LABEL') return e.preventDefault();
   }
