@@ -1,17 +1,21 @@
 .wrapper{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    max-width: none;
+    border-radius: inherit;
     font-size: 1.2em;
-    padding: 10px;
-    color: antiquewhite;
-    background: rgb(27, 27, 27);
+    padding: 20px;
+    color: #faebd7;
+    background: #363636;
 }
 
 .wrapper select {
     margin-top: 10px;
+    margin-left: -10px;
+    width: 90%;
     font-size: inherit;
+    border-radius: inherit;
     color: inherit;
-    padding: 5px;
+    padding: 6px;
     background: inherit;
 }
