@@ -1,0 +1,11 @@
+.bttn{
+    width: 20%;
+    margin: 5px 0 5px 5px;
+    border-radius: 7px;
+    border: none;
+    padding: 5px;
+    background: #1e910d;
+    font-weight: 600;
+    color: #faebd7;
+    font-size: 1.2em;
+}
