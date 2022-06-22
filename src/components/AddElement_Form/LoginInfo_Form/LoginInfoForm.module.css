@@ -2,23 +2,31 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 50%;
-    margin-left: 35%;
-
-    background: rgb(27, 27, 27);
+    width: 35%;
+    box-sizing: border-box;
+    margin: 20px 0px 0px 15%;
+    border-radius: 10px;
+    background: #363636;
 }
 
 .passwdInputSection {
-    display: flex;
-    width: inherit;
+    width: 100%;
 }
 
-.passwdInputSection button {
-    background:rgb(27, 27, 27);
-    color: azure;
-    font-weight: 600;
+.openModalBttn {
     height: fit-content;
     width: fit-content;
-    padding: 10px;
-    
+    margin: 0 5px 5px 0;
+    border-radius: 3px;
+    background:#363636;
+    color: #faebd7;
+    font-weight: 900;
+    font-size: 1.2em;
+    padding: 10px;   
+}
+
+.buttonAligner{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
