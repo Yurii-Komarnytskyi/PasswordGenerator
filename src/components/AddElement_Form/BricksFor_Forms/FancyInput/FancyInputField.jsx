@@ -22,10 +22,10 @@ const FancyInputField = ({
         placeholder={(plHolder)? plHolder : ''}
       />
       {(gotToHideInpText)? (
-        <button 
+        <img 
         onClick={()=> setAye(aye => !aye)}
-        className={styles.ayeButton}
-      ></button>
+        className={styles.ayeIMG}
+      ></img>
       ) : null} 
     </div> 
   )
