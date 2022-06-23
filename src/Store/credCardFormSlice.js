@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { beautifyCardNumber } from "../utils";
 const initialState = {
   title: '',
-  // cardholderName: '',
   userName: '',
   cardNumber: '',
   cardBrand: '',
@@ -23,27 +22,20 @@ const credCardFormSlice = createSlice({
     },
     handleCardNumberInput(state, action) {
       if (isNaN(+action.payload)) return;
-      state.cardNumber = action.payload;
-
-      // if(state.cardNumber.length > 16) return ; NEED TO MAKE IT BEHAVE PRIDICTABLE
-      // state.cardNumber = beautifyCardNumber(state.cardNumber, action.payload);  NEED TO MAKE IT BEHAVE PRIDICTABLE
+      state.cardNumber = String(action.payload).trim().slice(0, 16);
     },
     handleCardSecurityCodeInput(state, action) {
       if (isNaN(+action.payload)) return;
-      if (state.cardSecurityCode.length > 2) return; // NEED TO MAKE IT BEHAVE PRIDICTABLE
-      state.cardSecurityCode = action.payload;
+      state.cardSecurityCode = String(action.payload).trim().slice(0, 3);
     },
     handleExpirationYearInput(state, action) {
       if (isNaN(+action.payload)) return;
-      if (state.expirationYear.length > 3) return; // NEED TO MAKE IT BEHAVE PRIDICTABLE
-      state.expirationYear = action.payload;
+      state.expirationYear = String(action.payload).trim().slice(0, 4);
     },
-    resetStateToInitial(state, action) {
+    resetStateToInitial(_, a_) {
       return initialState;
     }
   },
-
-
 })
 
 export const {
