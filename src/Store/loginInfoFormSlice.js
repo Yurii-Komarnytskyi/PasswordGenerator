@@ -1,20 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { genPass } from '../utils';
 
+const initialState = {
+    title: '',
+    userName: '',
+    generatedPassword: '',
+    passwordWindow: {
+        passwdLength: 5,
+        capLettIncluded: false,
+        integersIncluded: false,
+        symbolsIncluded: false,
+        uniqueSymbOnly: false,
+    },
+    areEssentialKeysMissing() {
+        if(!this.title.trim() || !this.userName.trim()) return true;
+        else return false;
+    } 
+}
 const loginInfoFormSlice = createSlice({
     name: 'loginForm_Slice',
-    initialState: {
-        title: '',
-        userName: '',
-        generatedPassword: '',
-        passwordWindow: {
-            passwdLength: 5,
-            capLettIncluded: false,
-            integersIncluded: false,
-            symbolsIncluded: false,
-            uniqueSymbOnly: false,
-        }
-    },
+    initialState,
     reducers: {
         gatherTitle(state, action) {
             state.title = action.payload;
@@ -37,6 +42,9 @@ const loginInfoFormSlice = createSlice({
         },
         setPasswordBasedOnOptions(state, _) {
             state.generatedPassword = genPass(state.passwordWindow)
+        },
+        resetStateToInitial(state, action) {
+            return initialState;
         }
     }
 })
@@ -48,6 +56,7 @@ export const {
     setPasswdLength,
     setPasswordManually,
     setPasswordBasedOnOptions,
-    gatherValueByStateKey, } = loginInfoFormSlice.actions;
+    gatherValueByStateKey, 
+    resetStateToInitial, } = loginInfoFormSlice.actions;
 
 export default loginInfoFormSlice.reducer;
