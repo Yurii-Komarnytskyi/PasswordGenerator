@@ -1,12 +1,15 @@
 import React from 'react'
 import styles from './SaveButton.module.css';
 
-const SaveButton = ({handleSavedForm, resetStateToInitial}) => {
+const SaveButton = ({ handleSavedForm, resetStateToInitial, forbidToProceed }) => {
   return (
-    <button 
+    <button
       onClick={() => {
-        handleSavedForm();
-        resetStateToInitial();
+        if (forbidToProceed()) return null;  
+        else {
+          handleSavedForm();
+          resetStateToInitial();
+        }
       }}
       className={styles.bttn}
     >
