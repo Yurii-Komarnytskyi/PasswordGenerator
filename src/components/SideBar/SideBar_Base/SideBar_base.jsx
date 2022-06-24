@@ -12,11 +12,10 @@ const SideBar_base = () => {
       style={{height: `${screen_HEIGHT()}px`}}
     >
       <h2> Types </h2>
+      <Link to='/'></Link> 
       <Link to='/loginInfo' className={styles.plainLink}>Login</Link> 
       <Link to='/creditCard' className={styles.plainLink}>Credit card</Link> 
-      {/* NEED TO CREATE SOME DEFAULT BACKGROUND WHERE USER CAM CHECK OUT SOME BASIC INFO AND ETC. */}
-      {/* ALSO NEED TO INTERCEPT UNWANTED CLICS ON ALL OF THE LINK ITEMS  */}
-
+      
       <h2> Folders </h2>
       <FoldersOfSideBar />
     </div>
