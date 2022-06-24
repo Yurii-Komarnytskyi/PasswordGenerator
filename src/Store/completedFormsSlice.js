@@ -16,13 +16,17 @@ const completedFormsSlice = createSlice({
         },
         passCurrentlyOpened(state, action) {
             state.savedAndCurrentlyOpened = action.payload;
-        }
+        },
+        deleteSingleSavedForm(state, action) {
+            state[action.payload.kindOfForm] = state[action.payload.kindOfForm].filter(deleted => deleted['title'] !== action.payload.complForm['title'])
+        },
     },
 })
 
 export const {
     obtainCompletedLoginForm,
     obtainCompletedCreditCardForm,
-    passCurrentlyOpened, } = completedFormsSlice.actions;
+    passCurrentlyOpened,
+    deleteSingleSavedForm, } = completedFormsSlice.actions;
 
 export default completedFormsSlice.reducer;
