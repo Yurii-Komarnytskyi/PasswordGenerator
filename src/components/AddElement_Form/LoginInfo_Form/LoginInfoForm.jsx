@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './LoginInfoForm.module.css';
 import FancyInputField from '../BricksFor_Forms/FancyInput/FancyInputField';
-import { gatherValueByStateKey, setPasswordManually, resetStateToInitial } from '../../../Store/loginInfoFormSlice';
 import PasswdWindowAssembled from '../../ModalWindowForPasswordGenerator/AssembledModalWindow/PasswdWindowAssembled';
 import SaveButton from '../BricksFor_Forms/SaveButton/SaveButton';
+import { gatherValueByStateKey, setPasswordManually, resetStateToInitial } from '../../../Store/loginInfoFormSlice';
 import { obtainCompletedLoginForm } from '../../../Store/completedFormsSlice';
 
 const LoginInfoForm = () => {
@@ -44,6 +44,7 @@ const LoginInfoForm = () => {
       }
       <div className={styles.buttonAligner}>
         <SaveButton
+          forbidToProceed={()=> currentForm_State['areEssentialKeysMissing']()}
           handleSavedForm={() => dispatch(obtainCompletedLoginForm(currentForm_State))}
           resetStateToInitial={() => dispatch(resetStateToInitial())}
         />

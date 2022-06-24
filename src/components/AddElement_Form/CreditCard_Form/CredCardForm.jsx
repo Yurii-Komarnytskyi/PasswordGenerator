@@ -1,10 +1,16 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import styles from './CredCardForm.module.css';
 import FancyDDL from '../BricksFor_Forms/FancyDDL/FancyDDL';
 import FancyInputField from '../BricksFor_Forms/FancyInput/FancyInputField';
-import { gatherValueByStateKey, handleCardNumberInput, handleCardSecurityCodeInput, handleExpirationYearInput, resetStateToInitial} from '../../../Store/credCardFormSlice';
-import styles from './CredCardForm.module.css';
 import SaveButton from '../BricksFor_Forms/SaveButton/SaveButton';
+import { 
+  gatherValueByStateKey, 
+  handleCardNumberInput, 
+  handleCardSecurityCodeInput, 
+  handleExpirationYearInput, 
+  resetStateToInitial} from '../../../Store/credCardFormSlice';
 import { obtainCompletedCreditCardForm } from '../../../Store/completedFormsSlice';
 
 
@@ -36,7 +42,7 @@ const CredCardForm = () => {
         gotToHideInpText={true}
         inputHandler={(e) => dispatch(handleCardNumberInput(e))}
         usersInput={currentForm_State['cardNumber']}
-      /> {/* 4 by 4 by 4 by 4*/}
+      /> 
       <FancyDDL
         textForUpperSpan='Brand'
         arrOfOptions={arrOfCards}
@@ -64,6 +70,7 @@ const CredCardForm = () => {
 
       /> 
       <SaveButton 
+       forbidToProceed={()=> currentForm_State['areEssentialKeysMissing']()}
        handleSavedForm={() => dispatch(obtainCompletedCreditCardForm(currentForm_State))}
        resetStateToInitial={()=> dispatch(resetStateToInitial())} 
        />

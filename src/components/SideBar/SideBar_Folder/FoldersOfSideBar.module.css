@@ -13,4 +13,5 @@
 h3 {
     margin-left: 20px;
     color: #bcf2ec;
+    user-select: none;
 }

@@ -35,23 +35,12 @@ const genPass = (
         return password;
 }
 
-const beautifyCardNumber = (prevState, currentChar) => {
-    console.log(prevState.split(''))
-    let index = prevState.length-1;
-    if(index === 4 || index === 9 || index === 13 || index === 17) return ' wee';
-    return currentChar;
-    
-    // if(prevState.join('').length > 16) return prevState;
-    // return (prevState.split('').reduce((acc, currentVal, index) => {
-    //     console.log('here')
-    //     if(index === 4 || index === 9 || index === 13 || index === 17) {
-    //         acc += ' ';
-    //         return acc;
-    //     }
-    //     acc += currentChar.trim();
-    //     return acc;
-    // },``))
-    // `${action.payload.slice(0, 4)} ${action.payload.slice(4, 8)} ${action.payload.slice(9, 13)} ${action.payload.slice(13)}`
-}
+const  twentyCharsLongKey = () => genPass(20, true, true, true, true, true,);
 
-export { genPass, beautifyCardNumber}
+const screen_WIDTH = () => document.documentElement.clientWidth;
+const screen_HEIGHT = () => document.documentElement.clientHeight;
+export { 
+    genPass, 
+    screen_WIDTH, 
+    screen_HEIGHT,
+    twentyCharsLongKey, }

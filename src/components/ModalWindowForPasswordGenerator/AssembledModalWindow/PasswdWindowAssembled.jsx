@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './PasswdWindowAssembled.module.css';
 
@@ -14,7 +14,6 @@ const PasswdWindowAssembled = ({isVisible, genPssd}) => {
     
     const passwordWidow_State = useSelector(state => state.loginInfoForm.passwordWindow);
     const dispatch = useDispatch();
-    console.log(passwordWidow_State);
     
     const wrapperForSetPass = () => {
         dispatch(setPasswordBasedOnOptions());

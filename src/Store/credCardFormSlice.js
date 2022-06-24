@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { beautifyCardNumber } from "../utils";
+
 const initialState = {
   title: '',
   userName: '',
