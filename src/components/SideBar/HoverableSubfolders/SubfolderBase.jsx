@@ -1,8 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { passCurrentlyOpened, } from '../../../Store/completedFormsSlice';
+
 import styles from './SubfolderBase.module.css';
+import { passCurrentlyOpened, } from '../../../Store/completedFormsSlice';
+import { twentyCharsLongKey } from '../../../utils';
 
 
 const SubfolderBase = ({ arrOfcompletedForms, }) => {
@@ -16,9 +18,11 @@ const SubfolderBase = ({ arrOfcompletedForms, }) => {
         <div 
           className={styles.formItemNickName} 
           onClick={() => dispatch(passCurrentlyOpened(complForm))}
+          key={twentyCharsLongKey()}
         >
           <Link to='/filledOutForm' className={styles.navLink}> {complForm.title} </Link>
-          <span> {complForm.userName} </span>
+          <span className={styles.formItemSpan}> {complForm.userName} </span>
+          <button className={styles.formItemBttn}>Del.</button>
         </div>)
       }
     </div> 
