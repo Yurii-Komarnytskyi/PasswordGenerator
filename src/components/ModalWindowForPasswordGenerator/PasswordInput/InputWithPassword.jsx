@@ -23,7 +23,7 @@ const InputWithPassword = ({ password, wrapperForSetPass, passwdLength }) => {
           value={password}
           ref={inpWithPass}
         ></input>
-        <button className={styles.bttnBeauty} onClick={wrapperForSetPass}>Create</button>
+        <button className={styles.bttnBeauty} onClick={wrapperForSetPass}>Refresh</button>
         <button className={styles.bttnBeauty} onClick={copyText}>Copy</button>
       </div>
       <div

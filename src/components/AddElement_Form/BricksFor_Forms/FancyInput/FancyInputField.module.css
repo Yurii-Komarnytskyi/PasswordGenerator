@@ -1,0 +1,46 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "h h h h h h"
+        "i i i i i a "
+    ;
+    border-radius: inherit;
+    font-size: 1.2em;
+    padding: 10px;
+    color: #faebd7;
+    background: #363636;
+}
+
+.headerSpan {
+    grid-area: h;
+    user-select: none;
+}
+
+.usersInput {
+    grid-area: i;
+    margin: 10px 0 0 0;
+    padding-right: 25px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: inherit;
+    color: inherit;
+    padding: 5px;
+    background: inherit;
+}
+
+.ayeIMG {
+    content: url(../../../../icons/view.png);
+    width: 30px;
+    height: 30px;
+    /* margin-left: -25px; */
+    margin-left: -25%;
+    align-self:flex-end;
+}
+
+.ayeIMG:hover{
+    border: 2px #4081dd solid;
+    background-color: #bcf2ec;
+    border-radius: 50%;
+}

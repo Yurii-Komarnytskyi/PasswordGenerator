@@ -1,0 +1,64 @@
+.formsWrapper {
+    display: flex;
+    flex-direction: column;    
+    background-color: #3d3d3d;
+    width: 80%;
+}
+
+.formsWrapper :hover {
+    background-color: #222222;
+}
+
+.navLink {
+    grid-area: n;
+    display: block;
+    padding-left: 25px;
+    color: #faebd7;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+.navLink:hover{
+    color: #4081dd;
+}
+
+.formItemNickName {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        'n n n b'
+        's s s b';
+    margin-top: 5px;
+    border-radius: 6px;
+}
+.formItemSpan{
+    grid-area: s;
+    display: block;
+    text-align:start;
+    padding: 5px 5px 5px 25px;
+    color: #faebd7;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 6px;
+}
+
+.formItemBttn{
+    grid-area: b;
+    height:fit-content;
+    font-size: 1em;
+    font-weight: bold;
+    align-self: center;
+    padding: 5px 2px 5px 2px;
+    border: none;
+    border-radius: 5px;
+    background-color: #aa0000;
+
+}
+
+.formItemBttn:hover{
+    background-color: #ff0000;
+}

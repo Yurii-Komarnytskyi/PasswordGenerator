@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import styles from './CheckBox.module.css';
 
-const CheckBox = ({description, handler}) => {
-  const wrappedHandeler = () => handler(val => !val);
+const CheckBox = ({description, handleChange}) => {
+  
   const cancelChBxActivation = (e) => {
     if(e.target.tagName === 'LABEL') return e.preventDefault();
   }
@@ -11,7 +11,7 @@ const CheckBox = ({description, handler}) => {
       <input 
         type='checkbox' 
         className={styles.chBox} 
-        onChange={wrappedHandeler} 
+        onChange={handleChange} 
       />
       <span >
         {description} 

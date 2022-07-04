@@ -1,11 +1,11 @@
 const piecesForPassword = [
-    [...Array.from(Array(26)).map((val, ind) => val = String.fromCharCode(ind + 97))],
-    [...Array.from(Array(26)).map((val, ind) => val = String.fromCharCode(ind + 65))], // Big ones
+    [...Array.from(Array(26)).map((_, ind) => String.fromCharCode(ind + 97))],
+    [...Array.from(Array(26)).map((_, ind) => String.fromCharCode(ind + 65))], // Big ones
     [0,1,2,3,4,5,6,7,8,9],
     ['@','#','$','%','*','_'],
 ]
 
-const randIntRange = (s, e) => Math.floor(s + Math.random() * (e + 1 - s));
+const randIntRange = (min, max) => Math.floor(min + Math.random() * (max + 1 - min));
 
 const pickRandArr = (arr, uniqueSymb, recipient) => {
     const key = arr[randIntRange(0,3)];
@@ -17,21 +17,30 @@ const pickRandArr = (arr, uniqueSymb, recipient) => {
 }
 
 const genPass = (
-    passLength = 5,
-    capLetters = false, 
-    integers = false, 
-    symb = false,
-    uniqueSymb = false) => {
+    {passwdLength = 5,
+    capLettIncluded = false, 
+    integersIncluded = false, 
+    symbolsIncluded = false,
+    uniqueSymbOnly = false} ) => {
         let password = '';
         const passOptionsAccordToArgs = [
             piecesForPassword[0],
-            (capLetters)? piecesForPassword[1] : piecesForPassword[0],
-            (integers)? piecesForPassword[2] : piecesForPassword[0],
-            (symb)? piecesForPassword[3] : piecesForPassword[0],
+            (capLettIncluded)? piecesForPassword[1] : piecesForPassword[0],
+            (integersIncluded)? piecesForPassword[2] : piecesForPassword[0],
+            (symbolsIncluded)? piecesForPassword[3] : piecesForPassword[0],
         ]
-        for (let i = 0; i < passLength; i++) {
-            password += pickRandArr(passOptionsAccordToArgs, uniqueSymb, password);
+        for (let i = 0; i < passwdLength; i++) {
+            password += pickRandArr(passOptionsAccordToArgs, uniqueSymbOnly, password);
         }
         return password;
 }
-export { genPass, }
+
+const  twentyCharsLongKey = () => genPass(20, true, true, true, true, true,);
+
+const screen_WIDTH = () => document.documentElement.clientWidth;
+const screen_HEIGHT = () => document.documentElement.clientHeight;
+export { 
+    genPass, 
+    screen_WIDTH, 
+    screen_HEIGHT,
+    twentyCharsLongKey, }

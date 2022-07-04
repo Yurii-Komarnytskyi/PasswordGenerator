@@ -1,45 +1,25 @@
-import { useEffect, useState } from "react";
-import CheckBox from "./components/Checkboxes/CheckBox";
-import InputWithPassword from "./components/PasswordInput/InputWithPassword";
-import PasswordLengthRange from "./components/RangeOfLength/PasswordLengthRange";
-import { genPass} from "./utils";
+import { Routes, Route, } from 'react-router-dom';
+import { useSelector } from "react-redux";
+
 import styles from './App.module.css';
+import SideBar_base from "./components/SideBar/SideBar_Base/SideBar_base";
+import LoginInfoForm from "./components/AddElement_Form/LoginInfo_Form/LoginInfoForm";
+import CredCardForm from "./components/AddElement_Form/CreditCard_Form/CredCardForm";
+import SampleOfCompletedForm from "./components/AddElement_Form/FilledOutForms/SampleOfCompletedForm";
+import DafeultPage from "./components/SideBar/DefaultPagePlaceholder/DafeultPage";
 
 function App() {
-  const [password, setPassword] = useState('');
-  const [passwdLength, setPasswdLength] = useState(5);
-  const [capLettIncluded, setCapLettIncluded] = useState(false);
-  const [integersIncluded, setIntegersIncluded] = useState(false);
-  const [symbolsIncluded, setSymbolsIncluded] = useState(false);
-  const [uniqueSymbOnly, setUniqueSymbOnly] = useState(false);
-
-  const wrapperForSetPass = () => {
-    setPassword(genPass(
-      passwdLength,
-      capLettIncluded,
-      integersIncluded,
-      symbolsIncluded,
-      uniqueSymbOnly,
-    ))
-  }
-  useEffect(wrapperForSetPass, [passwdLength, capLettIncluded, integersIncluded, symbolsIncluded, uniqueSymbOnly])
-
+  const savedFormToBeDisplayed = useSelector(state => state.completedForms.savedAndCurrentlyOpened)
+ 
   return (
     <main className={styles.mainWrapper}>
-      <InputWithPassword
-        password={password}
-        wrapperForSetPass={wrapperForSetPass}
-        passwdLength={passwdLength}
-      />
-      <h3 className={styles.heading}>You may choose from the following options</h3>  
-      <CheckBox description={'Include capital letters'} handler={setCapLettIncluded} />
-      <CheckBox description={'Include integers'} handler={setIntegersIncluded} />
-      <CheckBox description={'Include symbols'} handler={setSymbolsIncluded} /> 
-      <CheckBox description={'Unique symbols only'} handler={setUniqueSymbOnly} /> 
-
-      <PasswordLengthRange passwdLength={passwdLength} setPasswdLength={setPasswdLength}/>
-
-      
+      <SideBar_base />
+      <Routes> 
+        <Route path='/' element={ <DafeultPage />}/>
+        <Route path='/creditCard' element={<CredCardForm  />}/>
+        <Route path='/loginInfo'  element={<LoginInfoForm />}/>
+        <Route path='/filledOutForm' element={<SampleOfCompletedForm filledOutForm={savedFormToBeDisplayed}/>} />
+      </Routes>
     </main>
   );
 }
